@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <div class="outer">
+        <div class="box">
+            <div class="top"><h2>Sign In</h2></div>
+            <form >
+                <div class="input-box">
+                    <input type="text" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="rember">
+                    <a class="right" href="#">Forgot Password?</a>
+                </div>
+                <div class="clear">
+                    <br> 
+                </div>
+                <div class="clear">
+                    <br> 
+                </div>
+                <div>
+                    <input type="submit" value="Sign in" class="sub">
+                </div>
+            </form>
+            <div style="padding: 0px 10% 0px 10%; margin-top: 0;">
+                <p>or</p>
+                <a href="SignUp.html"><button class="sub">Join now</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="icon">
+        <button onclick="myFunction()"><img src="dk.png" alt="image" onclick="changeImage()" id="myImage"></button>
+    </div>
+    <script>
+        function setMode(mode) {
+            var body = document.getElementById('body');
+            if (mode === 'dark') {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+            updateImage(mode);
+        }
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+            var mode = element.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('mode', mode);
+            updateImage(mode);
+        }
+        function getMode() {
+            return localStorage.getItem('mode') || 'light';
+        }
+        function updateImage(mode) {
+            var imageElement = document.getElementById('myImage');
+            if (mode === 'dark') {
+                imageElement.src = 'sun.png';
+            } else {
+                imageElement.src = 'dk.png';
+            }
+        }
+        var mode = getMode();
+        if (mode) {
+            setMode(mode);
+        }
+    </script>
+</body>
+</html>
