@@ -23,7 +23,7 @@ body{
     padding: 0;
 }
 
-body.dark-mode {
+body.dark-mode, .dark-mode .right{
     background-color: black;
     color: white;
 }
@@ -104,11 +104,10 @@ form{
     color: white;   
 }
 
-
 .right{
     float: right;
     text-decoration: none;
-    color: white;
+    color: black;
     font-size: 12px;
     margin-top: 10px;
 }
