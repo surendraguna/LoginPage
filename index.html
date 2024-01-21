@@ -3,10 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Authentication</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./assets/logo.png">
 </head>
-<body>
-    hello world
-    <img src="./assets/logo3.png" alt="">
+<body id="body">
+    <div class="logo-outer">
+        <img src="./assets/logo.png" alt="logo" class="logo">
+    </div>
+    <div class="outer" style="height: 50vh;">
+        <div class="box" style="display: grid; align-items: center; height: 45vh;"">
+            <div>
+                <h1>Authentication</h1>
+                <a href="SignUp.html"><button class="but">Sign up</button></a>
+                <a href="SignIn.html"><button class="but">Sign in</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="icon" style="margin-top: 0px;">
+        <button onclick="myFunction()"><img src="./assets/dk.png" alt="image" onclick="changeImage()" id="myImage"></button>
+    </div>
+    <footer>
+        <span>Created by Surendra Boya</span>
+    </footer>
+    <script>
+        function setMode(mode) {
+            var body = document.getElementById('body');
+            if (mode === 'dark') {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+            updateImage(mode);
+        }
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+            var mode = element.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('mode', mode);
+            updateImage(mode);
+        }
+        function getMode() {
+            return localStorage.getItem('mode') || 'light';
+        }
+        function updateImage(mode) {
+            var imageElement = document.getElementById('myImage');
+            if (mode === 'dark') {
+                imageElement.src = './assets/sun.png';
+            } else {
+                imageElement.src = './assets/dk.png';
+            }
+        }
+        var mode = getMode();
+        if (mode) {
+            setMode(mode);
+        }
+    </script>
 </body>
 </html>
